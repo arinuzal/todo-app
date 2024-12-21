@@ -9,12 +9,17 @@ html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background: #0b011d;
 }
 
 header {
-    background: #5F30E2;
+    background: #1f0650;
     padding: 16px;
     color: white;
+}
+
+span {
+    color: #9475EA;
 }
 
 .wrapper {
