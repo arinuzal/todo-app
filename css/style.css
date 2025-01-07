@@ -178,14 +178,24 @@ input[type=text], input[type=date], .btn-submit:focus {
     }
 
     .wrapper .container {
-        width: 100%;
+        width: 95%;
+        
     }
 
     .list-item {
-        width: 90%;
+        width: 100%;
     }
 
     .form {
         width: 100%;
+    }
+
+    .btn-submit {
+        align-self: center;
+        margin-top: 16px;
+    }
+
+    .container {
+        padding: 20px;
     }
 }
