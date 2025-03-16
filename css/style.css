@@ -72,7 +72,9 @@ span {
 }
 
 input[type="text"],
-input[type="date"] {
+input[type="date"],
+input[type="search"]
+{
   background: #161b22;
   border: 2px solid #58a6ff;
   border-radius: 8px;
@@ -178,4 +180,29 @@ input:focus {
 .trash-button {
   outline: none;
 }
+
+/* Scrollbar base */
+::-webkit-scrollbar {
+  height: 8px; /* Adjust height of horizontal scrollbar */
+  width: 12px; /* Adjust width of vertical scrollbar */
+  background: #2c2c2c; /* Darker background for the scrollbar */
+}
+
+/* Scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background: #4b4b4b; /* Slightly lighter thumb color */
+  border-radius: 10px; /* Rounded edges for the thumb */
+  transition: background 0.3s; /* Smooth transition on hover */
+}
+
+/* Scrollbar thumb hover effect */
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af; /* Change to accent color on hover */
+}
+
+/* Scrollbar corner (where the two scrollbars meet) */
+::-webkit-scrollbar-corner {
+  background: #2c2c2c; /* Match the background of the scrollbar */
+}
+
 

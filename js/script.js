@@ -101,6 +101,47 @@ function addTodo() {
   saveData();
 }
 
+function searchTodoList() {
+  const searchTodoList = document.getElementById("searchTodo");
+  const searchTodoInput = document.getElementById("searchTodoTitle");
+  const incompleteTodoList = document.getElementById("todos");
+  const completeTodoList = document.getElementById("completed-todos");
+  const searchQuery = searchTodoInput.value.toLowerCase();
+
+  // Menghapus daftar sebelumnya
+  incompleteTodoList.innerHTML = "";
+  completeTodoList.innerHTML = "";
+
+  // Menghapus pesan pencarian sebelumnya jika ada
+  const existingMessage = document.getElementById("todoSearchMessage");
+  if (existingMessage) {
+    existingMessage.remove();
+  }
+
+  // Filter todo berdasarkan input pencarian
+  const searchTodo = todos.filter((todoItem) => {
+    return todoItem.task.toLowerCase().includes(searchQuery);
+  });
+
+  // Menampilkan hasil pencarian
+  if (searchTodo.length > 0) {
+    for (const todoItem of searchTodo) {
+      const todoElement = makeTodo(todoItem);
+      if (todoItem.isCompleted) {
+        completeTodoList.append(todoElement);
+      } else {
+        incompleteTodoList.append(todoElement);
+      }
+    }
+  } else {
+    // Jika tidak ditemukan, tampilkan pesan
+    const noResultMessage = document.createElement("p");
+    noResultMessage.id = "todoSearchMessage";
+    noResultMessage.innerText = "Tugas tidak ditemukan.";
+    searchTodoList.append(noResultMessage);
+  }
+}
+
 function addTaskToCompleted(todoId /* HTMLELement */) {
   const todoTarget = findTodo(todoId);
   if (todoTarget == null) return;
@@ -170,6 +211,12 @@ document.addEventListener('DOMContentLoaded', function () {
   submitForm.addEventListener('submit', function (event) {
     event.preventDefault();
     addTodo();
+  });
+
+  const searchSubmit = document.getElementById("searchSubmit");
+  searchSubmit.addEventListener("click", (event) => {
+    event.preventDefault();
+    searchTodoList();
   });
   
   if (isStorageExist()) {
