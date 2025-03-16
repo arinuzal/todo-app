@@ -46,6 +46,11 @@ span {
 }
 
 .item {
+  flex-wrap: wrap;
+  max-width: 100%; /* Batasi lebar agar tidak melebihi pembungkus */
+  white-space: nowrap; /* Hindari teks turun ke baris baru */
+  overflow: hidden; /* Sembunyikan teks yang melebihi pembungkus */
+  text-overflow: ellipsis; /* Tambahkan "..." jika teks terlalu panjang */
   gap: 16px;
   border-radius: 16px;
   margin-top: 16px;
